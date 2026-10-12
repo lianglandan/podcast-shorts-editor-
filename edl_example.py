@@ -1,6 +1,6 @@
 """一期的剪辑清单（EDL）。把本文件放在期目录里（如 work/ep01/edl.py），然后：
-    SOURCES=work/sources python3 scripts/build_episode.py   →  content.mkv + timeline.json
-    python3 scripts/render_episode.py                       →  final.mp4
+    SOURCES=work/sources python3 build_episode.py   →  content.mkv + timeline.json
+    python3 render_episode.py                       →  final.mp4
 每个片段 = (素材名, [(起秒, 止秒), ...], '这一句的字幕')
   · 素材名 = track_faces.py 输出目录名（$SOURCES/<素材名>/faces2.mkv）
   · 起止秒来自 phrases.py 打印的短语时间；一句里要跳过口误/重录，就拆成多个 (起, 止)

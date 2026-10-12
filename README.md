@@ -13,30 +13,29 @@
 把整个目录放进 Claude 的 skills 目录（如 `~/.claude/skills/podcast-shorts-editor/`），或在 Claude 设置里上传。
 
 ```bash
-bash scripts/setup_models.sh   # 下载模型
+bash setup_models.sh   # 下载模型
 sudo apt install ffmpeg fonts-noto-cjk fonts-noto-cjk-extra
 ```
 
-## 目录
-```
-SKILL.md                 工作流与剪辑规则（Claude 读这个）
-scripts/
-  asr_sensevoice.py      转写，输出 tok_<tag>.json
-  phrases.py             按短语打印时间与文本，写 EDL 用
-  merge_transcript.py    多段录屏合成逐字稿
-  track_faces.py         人脸跟踪裁出双人画框轨道 faces2.mkv + 静音表
-  scrfd.py               SCRFD 人脸检测
-  durs.py                停顿压缩与帧对齐
-  build_episode.py       按 edl.py 拼接、变速 → content.mkv + timeline.json
-  render_episode.py      排版合成 → final.mp4（可插主持人独白）
-  layout_nuanmo.py       「暖墨编辑部」排版组件
-  host_build.py          主持人独白切片（支持 --tonemap / --audio）
-  host_solo.py           独白单独成片
-  compress.sh            2-pass 压到 ~29MB
-  setup_models.sh        下载模型
-templates/               edl.py 模板、独白 EDL 模板、拆分方案模板
-references/              敏感内容清单、排版规格、踩坑记录
-```
+## 文件说明（所有文件在仓库根目录同一层）
+| 文件 | 作用 |
+|---|---|
+| SKILL.md | 工作流与剪辑规则（Claude 读这个） |
+| asr_sensevoice.py | 转写，输出 tok_<tag>.json |
+| phrases.py | 按短语打印时间与文本，写 EDL 用 |
+| merge_transcript.py | 多段录屏合成逐字稿 |
+| track_faces.py | 人脸跟踪裁出双人画框轨道 faces2.mkv + 静音表 |
+| scrfd.py | SCRFD 人脸检测 |
+| durs.py | 停顿压缩与帧对齐 |
+| build_episode.py | 按 edl.py 拼接、变速 → content.mkv + timeline.json |
+| render_episode.py | 排版合成 → final.mp4（可插主持人独白） |
+| layout_nuanmo.py | 「暖墨编辑部」排版组件 |
+| host_build.py | 主持人独白切片（支持 --tonemap / --audio） |
+| host_solo.py | 独白单独成片 |
+| compress.sh | 2-pass 压到 ~29MB |
+| setup_models.sh | 下载模型 |
+| edl_example.py / host_edl_example.json / split_plan_template.md | 剪辑清单、独白清单、拆分方案模板 |
+| sensitive_checklist.md / layout_spec.md / lessons.md | 敏感内容清单、排版规格、踩坑记录 |
 
 ## 许可
 MIT
