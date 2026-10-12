@@ -1,0 +1,7 @@
+__pycache__/
+*.mkv
+*.mp4
+*.pcm
+*.wav
+work/
+models/
